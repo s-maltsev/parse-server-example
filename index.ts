@@ -39,14 +39,3 @@ httpServer.listen(port, function () {
 // This will enable the Live Query real-time server
 await ParseServer.createLiveQueryServer(httpServer);
 console.log(`Visit http://localhost:${port}/test to check the Parse Server`);
-
-//открыть доступ для frontend
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://alebi-track-app.onrender.com'); // разрешает запросы с домена https://alebi-track-app.onrender.com
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, X-Parse-Application-Id, X-Parse-REST-API-Key, X-Parse-Session-Token'
-  );
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  next();
-});
