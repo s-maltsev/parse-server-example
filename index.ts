@@ -6,6 +6,8 @@ import { ParseServer } from 'parse-server';
 import path from 'path';
 import http from 'http';
 import { config } from './config.js';
+import fs from 'fs';
+import path from 'path';
 
 const __dirname = path.resolve();
 const app = express();
@@ -38,3 +40,14 @@ httpServer.listen(port, function () {
 // This will enable the Live Query real-time server
 await ParseServer.createLiveQueryServer(httpServer);
 console.log(`Visit http://localhost:${port}/test to check the Parse Server`);
+
+const schemasPath = path.join(__dirname, '../schemas.json');
+const schemas = JSON.parse(fs.readFileSync(schemasPath, 'utf8'));
+
+const api = new ParseServer({
+  databaseURI: process.env.DATABASE_URI,
+  appId: process.env.APP_ID,
+  masterKey: process.env.MASTER_KEY,
+  serverURL: process.env.SERVER_URL,
+  schemas // 👈 сюда передаём описание
+});
