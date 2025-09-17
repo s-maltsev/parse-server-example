@@ -39,16 +39,3 @@ httpServer.listen(port, function () {
 // This will enable the Live Query real-time server
 await ParseServer.createLiveQueryServer(httpServer);
 console.log(`Visit http://localhost:${port}/test to check the Parse Server`);
-
-import fs from 'fs';
-
-const schemasPath = path.join(__dirname, '../schemas.json');
-const schemas = JSON.parse(fs.readFileSync(schemasPath, 'utf8'));
-
-const api = new ParseServer({
-  databaseURI: process.env.DATABASE_URI,
-  appId: process.env.APP_ID,
-  masterKey: process.env.MASTER_KEY,
-  serverURL: process.env.SERVER_URL,
-  schemas // 👈 сюда передаём описание
-});
