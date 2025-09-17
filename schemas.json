@@ -1,0 +1,36 @@
+[
+  {
+    "className": "Athlete",
+    "fields": {
+      "name": { "type": "String" },
+      "birthDate": { "type": "Date" },
+      "user": { "type": "Pointer", "targetClass": "_User" }
+    }
+  },
+  {
+    "className": "Training",
+    "fields": {
+      "date": { "type": "Date" },
+      "location": { "type": "String" },
+      "athletes": { "type": "Relation", "targetClass": "Athlete" },
+      "exercises": { "type": "Relation", "targetClass": "Exercise" }
+    }
+  },
+  {
+    "className": "Exercise",
+    "fields": {
+      "name": { "type": "String" },
+      "training": { "type": "Pointer", "targetClass": "Training" }
+    }
+  },
+  {
+    "className": "ShootingResult",
+    "fields": {
+      "athlete": { "type": "Pointer", "targetClass": "Athlete" },
+      "exercise": { "type": "Pointer", "targetClass": "Exercise" },
+      "missesStanding": { "type": "Number" },
+      "missesProne": { "type": "Number" },
+      "date": { "type": "Date" }
+    }
+  }
+]
