@@ -48,5 +48,5 @@ httpServer.listen(port, function () {
 });
 
 // This will enable the Live Query real-time server
-await ParseServer.createLiveQueryServer(httpServer);
-console.log(Visit http://localhost:${port}/test to check the Parse Server);
+ParseServer.createLiveQueryServer(httpServer);
+//console.log(Visit http://localhost:${port}/test to check the Parse Server);
