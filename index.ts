@@ -16,7 +16,14 @@ app.use(
   cors({
     origin: process.env.FRONTEND_URL || '*', // можно ограничить: ['https://твой-домен']
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Parse-Session-Token'],
+    allowedHeaders: [
+      'Content-Type',
+      'Authorization',
+      'X-Parse-Session-Token',
+      'X-Parse-Application-Id',
+      'X-Parse-REST-API-Key',
+      'X-Parse-Installation-Id'
+    ],
     credentials: true,
   })
 );
