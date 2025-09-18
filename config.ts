@@ -7,7 +7,7 @@ export const config = {
   appId: process.env.APP_ID,
   masterKey: process.env.MASTER_KEY, //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL, // Don't forget to change to https if needed
-  allowOrigin: process.env.FRONTEND_URL,
+  allowOrigin: process.env.FRONTEND_URL || '*',
   liveQuery: {
     classNames: ['Posts', 'Comments'], // List of classes to support for query subscriptions
   },
